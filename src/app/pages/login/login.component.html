@@ -1,0 +1,26 @@
+<form #f="ngForm" class="container">
+
+  <div class="row mt-3">
+    <div class="col-12 col-md-4">
+      <input-field name="login"
+                   placeholder="Логин"
+                   type="text"
+                   [(ngModel)]="login"></input-field>
+    </div>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col-12 col-md-4">
+      <input-field name="password"
+                   type="password"
+                   [(ngModel)]="password"></input-field>
+    </div>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col-12 col-md-12">
+      <button type="button" class="btn btn-primary" (click)="doLogin()">Войти</button>
+    </div>
+  </div>
+
+</form>
