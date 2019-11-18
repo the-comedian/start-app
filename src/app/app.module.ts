@@ -10,6 +10,9 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HeaderComponent} from './core/components/header/header.component';
 import {RestService} from './services/rest.service';
 import {HttpClientModule} from '@angular/common/http';
+import {LoginService} from './services/login.service';
+import {AuthGuard} from './services/auth.guard';
+import {NgxWebstorageModule} from 'ngx-webstorage';
 
 @NgModule({
   declarations: [
@@ -23,10 +26,13 @@ import {HttpClientModule} from '@angular/common/http';
     FormsModule,
     FormControlsModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxWebstorageModule.forRoot()
   ],
   providers: [
-    RestService
+    RestService,
+    LoginService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

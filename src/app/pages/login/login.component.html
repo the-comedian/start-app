@@ -5,6 +5,7 @@
       <input-field name="login"
                    placeholder="Логин"
                    type="text"
+                   [required]="true"
                    [(ngModel)]="login"></input-field>
     </div>
   </div>
@@ -12,14 +13,16 @@
   <div class="row mt-3">
     <div class="col-12 col-md-4">
       <input-field name="password"
+                   placeholder="Пароль"
                    type="password"
+                   [required]="true"
                    [(ngModel)]="password"></input-field>
     </div>
   </div>
 
   <div class="row mt-3">
     <div class="col-12 col-md-12">
-      <button type="button" class="btn btn-primary" (click)="doLogin()">Войти</button>
+      <button [disabled]="!f.valid" type="button" class="btn btn-primary" (click)="doLogin()">Войти</button>
     </div>
   </div>
 

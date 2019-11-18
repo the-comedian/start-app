@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {RestService} from '../../services/rest.service';
+import {LoginService} from '../../services/login.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +19,8 @@ export class LoginComponent implements OnInit {
    */
   public password: string;
 
-  constructor(private restService: RestService) {
+  constructor(private loginService: LoginService,
+              private router: Router) {
   }
 
   ngOnInit() {
@@ -27,15 +30,11 @@ export class LoginComponent implements OnInit {
    * При нажатии на кнопку "войти"
    */
   public doLogin() {
-    console.log('login: ' + this.login);
-    console.log('password: ' + this.password);
-    const params = {
-      login: this.login,
-      password: this.password
-    };
-    this.restService.doCall('doLogin', params)
+    this.loginService.doLogin(this.login, this.password)
       .subscribe((res: any) => {
-        console.log(res);
+        if (res.token) {
+          this.router.navigate(['/root']);
+        }
       });
   }
 
