@@ -9,18 +9,17 @@
 
   <div class="row col-12">
     <div class="col-md-6">
-      <input-field placeholder="Параметр1"
-                   name="param1"
-                   type="text"
-                   [required]="true"
-                   [(ngModel)]="param1"></input-field>
+      <input-field placeholder="Параметр1" name="param1" type="text" [required]="true" [(ngModel)]="param1">
+      </input-field>
     </div>
     <div class="col-md-6">
-      <input-field placeholder="Параметр2"
-                   name="param2"
-                   type="number"
-                   [required]="true"
-                   [(ngModel)]="param2"></input-field>
+      <input-field placeholder="Параметр2" name="param2" type="number" [required]="true" [(ngModel)]="param2">
+      </input-field>
+    </div>
+    <div class="col-md-6">
+      <ng-select name="testSelect" [(ngModel)]="selectModel" [items]="selectItems" required="true" bindLabel="id"
+        bindValue="title">
+      </ng-select>
     </div>
   </div>
 

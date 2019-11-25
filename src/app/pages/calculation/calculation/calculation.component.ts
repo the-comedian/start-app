@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-calculation',
@@ -6,6 +6,21 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./calculation.component.scss']
 })
 export class CalculationComponent implements OnInit {
+
+  public selectItems = [
+    {
+      id: 1,
+      title: 'yay'
+    },
+    {
+      id: 2,
+      title: 'hello'
+    },
+    {
+      id: 3,
+      title: 'this'
+    }
+  ]
 
   constructor() {
   }
