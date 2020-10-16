@@ -1,14 +1,15 @@
-import {Injectable} from '@angular/core';
-import {RestService} from './rest.service';
-import {map} from 'rxjs/operators';
-import {SessionService} from './session.service';
+import { Injectable } from '@angular/core';
+import { RestService } from './rest.service';
+import { map } from 'rxjs/operators';
+import { SessionService } from './session.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
 
-  public userName = 'Войти';
+  public isLoggedId = false;
+  public userName;
   public token;
 
   constructor(private restService: RestService,

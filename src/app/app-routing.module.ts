@@ -1,8 +1,8 @@
-import {NgModule} from '@angular/core';
-import {Routes, RouterModule} from '@angular/router';
-import {LoginComponent} from './pages/login/login.component';
-import {AuthGuard} from './services/auth.guard';
-
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import { LoginComponent } from './pages/login/login.component';
+import { AuthGuard } from './services/auth.guard';
+import { HomeComponent } from './pages/home/home.component';
 
 /**
  * Задаются пути до компонентов
@@ -13,13 +13,9 @@ const routes: Routes = [
       component: LoginComponent
     },
     {
-      path: 'root',
-      loadChildren: () => import('./pages/root/root.module').then((m => m.RootModule)),
+      path: '',
+      component: HomeComponent,
       canActivate: [AuthGuard]
-    },
-    {
-      path: 'calc',
-      loadChildren: () => import('./pages/calculation/calculation.module').then((m => m.CalculationModule))
     }
   ]
 ;
