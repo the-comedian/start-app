@@ -13,7 +13,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoginService } from './services/login.service';
 import { AuthGuard } from './services/auth.guard';
 import { NgxWebstorageModule } from 'ngx-webstorage';
-import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
   declarations: [
@@ -28,8 +27,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
     FormControlsModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    NgxWebstorageModule.forRoot(),
-    NgSelectModule
+    NgxWebstorageModule.forRoot()
   ],
   providers: [
     RestService,
