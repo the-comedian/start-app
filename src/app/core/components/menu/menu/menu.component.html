@@ -1,0 +1,8 @@
+<div *ngIf="menuList" class="menu-container menu-container-full">
+  <div style="width: 250px">
+    <menu-tree [menuList]="menuList"
+               (menuSelect)="onMenuSelected($event)"
+               [isToggled]="isToggled"
+               [currentRoute]="currentRoute"></menu-tree>
+  </div>
+</div>

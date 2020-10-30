@@ -1,6 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~bootstrap/scss/bootstrap';
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "../node_modules/ag-grid-community/dist/styles/ag-grid.css";
+@import "../node_modules/ag-grid-community/dist/styles/ag-theme-alpine.css";
 
 
 html, body {
@@ -8,6 +10,6 @@ html, body {
 }
 
 .page-container {
-  padding-left: 200px;
-  padding-right: 200px;
+  padding-top: 10px;
+  padding-left: 10px;
 }

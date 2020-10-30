@@ -1,2 +1,12 @@
-<app-header *ngIf="loginService.isLoggedId"></app-header>
-<router-outlet></router-outlet>
+<div class="main-page-container">
+  <app-header [projectName]="projectName" class="w-100"
+              *ngIf="loginService.isLoggedId"></app-header>
+  <div class="d-flex w-100 main-content-height">
+    <app-menu *ngIf="loginService.isLoggedId"
+              [currentRoute]="currentRoute"
+              (menuSelect)="onMenuSelect($event)"></app-menu>
+    <div class="w-100 h-100 outlet-wrapper">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

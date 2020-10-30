@@ -1,0 +1,17 @@
+.main-page-container {
+  display: flex;
+  flex-wrap: wrap;
+  height: 100%;
+  width: 100%;
+  background-color: #f5f9fb;
+}
+
+.main-content-height {
+  height: calc(100% - 80px);
+}
+
+.outlet-wrapper {
+  overflow-y: scroll;
+  padding-bottom: 30px;
+}
+

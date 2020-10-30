@@ -14,6 +14,8 @@ import { LoginService } from './services/login.service';
 import { AuthGuard } from './services/auth.guard';
 import { NgxWebstorageModule } from 'ngx-webstorage';
 import { HomeComponent } from './pages/home/home.component';
+import { MenuModule } from './core/components/menu/menu.module';
+import { LoggerService } from './services/logger.service';
 
 @NgModule({
   declarations: [
@@ -29,12 +31,14 @@ import { HomeComponent } from './pages/home/home.component';
     FormControlsModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    NgxWebstorageModule.forRoot()
+    NgxWebstorageModule.forRoot(),
+    MenuModule
   ],
   providers: [
     RestService,
     LoginService,
-    AuthGuard
+    AuthGuard,
+    LoggerService
   ],
   bootstrap: [AppComponent]
 })

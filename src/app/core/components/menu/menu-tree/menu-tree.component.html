@@ -1,0 +1,15 @@
+<div *ngFor="let menu of menuList">
+  <div (click)="onMenuSelect(menu)" *ngIf="menu.route" class="menu-item-container d-flex align-items-center"
+       [ngClass]="{'route-active': menu.isActive}">
+    <div [class]="menu.image + ' menu-icon'"></div>
+    <div class="menu-item">{{menu.title}}</div>
+  </div>
+  <div *ngIf="!menu.route" class="menu-title-container">
+    {{menu.title}}
+  </div>
+  <ng-container *ngIf="menu.children && menu.children.length">
+    <div style="padding-left: 10px">
+      <menu-tree (menuSelect)="onMenuSelect($event)" [menuList]="menu.children"></menu-tree>
+    </div>
+  </ng-container>
+</div>

@@ -15,10 +15,8 @@ export class LoginService {
   constructor(private restService: RestService,
               private sessionService: SessionService) {
     this.userName = sessionService.getSessionParam('userName');
-    if (!this.userName) {
-      this.userName = 'Войти';
-    }
     this.token = sessionService.getSessionParam('token');
+    this.isLoggedId = !!this.token;
   }
 
   /**
@@ -41,6 +39,17 @@ export class LoginService {
           return res;
         })
       );
+  }
+
+  /**
+   * Войти без серверной части
+   */
+  public doLoginOffline() {
+    this.userName = 'Test';
+    this.token = 'Test';
+    this.isLoggedId = true;
+    this.sessionService.setSessionParam('userName', this.userName);
+    this.sessionService.setSessionParam('token', this.token);
   }
 
 }
