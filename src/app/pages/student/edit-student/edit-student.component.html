@@ -1,0 +1,31 @@
+<form #f="ngForm" *ngIf="student" class="page-container">
+
+  <h2>Задать студента</h2>
+
+  <div class="row col-12">
+    <div class="col-md-6">
+      <input-field name="fio"
+                   placeholder="ФИО"
+                   [(ngModel)]="student.fio"
+                   [required]="true"></input-field>
+    </div>
+    <div class="col-md-6">
+      <input-field name="dateOfBirth"
+                   placeholder="Дата рождения"
+                   type="date"
+                   [(ngModel)]="student.dateOfBirth"
+                   [required]="true"></input-field>
+    </div>
+    <div *ngIf="student.group" class="col-md-6">
+      <input-field name="groupId"
+                   placeholder="ИД группы"
+                   [(ngModel)]="student.group.id"
+                   [required]="true"></input-field>
+    </div>
+  </div>
+
+  <div class="d-flex w-100 justify-content-center">
+    <button type="button" (click)="saveStudent()" class="btn btn-primary" [disabled]="!f.valid">Сохранить</button>
+  </div>
+
+</form>

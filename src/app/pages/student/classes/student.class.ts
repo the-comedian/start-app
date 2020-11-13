@@ -1,7 +1,10 @@
+import { StudentGroup } from './student-group.class';
+
 export class Student {
 
-  public fullName: string;
-  public age: number;
-  public personalNumber: string;
+  public fio: string;
+  public id: number;
+  public dateOfBirth: string;
+  public group: StudentGroup;
 
 }

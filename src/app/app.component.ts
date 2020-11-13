@@ -50,5 +50,11 @@ export const MENU_LIST: Menu[] = [
     title: 'Студенты',
     children: null,
     roles: null
+  },
+  {
+    route: '/student/edit',
+    title: 'Задать студента',
+    children: null,
+    roles: null
   }
 ];

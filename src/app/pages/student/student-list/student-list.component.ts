@@ -24,47 +24,7 @@ export class StudentListComponent implements OnInit {
     }
   ];
 
-  public rowData: Student[] = [
-    {
-      age: 10,
-      fullName: 'Вася',
-      personalNumber: '1337'
-    },
-    {
-      age: 10,
-      fullName: 'Вася',
-      personalNumber: '1337'
-    },
-    {
-      age: 10,
-      fullName: 'Вася',
-      personalNumber: '1337'
-    },
-    {
-      age: 10,
-      fullName: 'Вася',
-      personalNumber: '1337'
-    },
-    {
-      age: 10,
-      fullName: 'Вася',
-      personalNumber: '1337'
-    },
-    {
-      age: 10,
-      fullName: 'Вася',
-      personalNumber: '1337'
-    }, {
-      age: 10,
-      fullName: 'Вася',
-      personalNumber: '1337'
-    },
-    {
-      age: 10,
-      fullName: 'Вася',
-      personalNumber: '1337'
-    }
-  ];
+  public rowData: Student[] = [];
 
   constructor() {
   }
