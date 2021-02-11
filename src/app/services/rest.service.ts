@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { SSE } from 'sse.js';
 
 @Injectable({
   providedIn: 'root'
@@ -40,6 +41,16 @@ export class RestService {
   private mapResponse(methodName, response) {
     console.log(methodName + ' call result: ', response);
     return response;
+  }
+
+  public doSseCall(methodName, data: any) {
+    const url = RestService.DEFAULT_PATH + methodName;
+    const source = new SSE(url, {
+      headers: {'Content-Type': 'text/plain'},
+      payload: data,
+      method: 'POST'
+    });
+    return source;
   }
 
 }

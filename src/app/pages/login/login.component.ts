@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { LoginService } from '../../services/login.service';
 import { Router } from '@angular/router';
 import { LoggerService } from '../../services/logger.service';
+import { RestService } from '../../services/rest.service';
 
 @Component({
   selector: 'app-login',
@@ -23,7 +24,8 @@ export class LoginComponent implements OnInit {
 
   constructor(private loginService: LoginService,
               private router: Router,
-              private loggerService: LoggerService) {
+              private loggerService: LoggerService,
+              private restService: RestService) {
   }
 
   ngOnInit() {
@@ -36,8 +38,15 @@ export class LoginComponent implements OnInit {
    * При нажатии на кнопку "войти"
    */
   public doLogin() {
-    this.loginService.doLoginOffline();
-    this.router.navigate(['']);
+    const source = this.restService.doSseCall('stream', this.login);
+    source.addEventListener('message', function(e) {
+      // Assuming we receive JSON-encoded data payloads:
+      const payload = JSON.parse(e.data);
+      console.log(payload);
+    });
+    source.stream();
+    // this.loginService.doLoginOffline();
+    // this.router.navigate(['']);
     // this.loginService.doLogin(this.login, this.password)
     //   .subscribe((res: any) => {
     //     if (res.token) {
